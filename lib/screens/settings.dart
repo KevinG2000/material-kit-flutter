@@ -12,10 +12,10 @@ class Settings extends StatefulWidget {
   @override
   _SettingsState createState() => _SettingsState();
 }
-
+ 
 class _SettingsState extends State<Settings> {
-  bool switchValueOne;
-  bool switchValueTwo;
+  bool switchValueOne = false;
+  bool switchValueTwo= false;
 
   void initState() {
     setState(() {
@@ -27,8 +27,10 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
+     final Function tap;
     return Scaffold(
         appBar: Navbar(
+          tags: [],
           title: "Settings",
         ),
         drawer: MaterialDrawer(currentPage: "Settings"),
@@ -107,8 +109,8 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(color: MaterialColors.caption)),
                   ),
                 ),
-                TableCellSettings(title: "Manage Payment Options"),
-                TableCellSettings(title: "Manage Gift Cards"),
+                TableCellSettings(title: "Manage Payment Options", onTap: () {Navigator.pushReplacementNamed(context, '/gift');} ),
+                TableCellSettings(title: "Manage Gift Cards", onTap: () {Navigator.pushReplacementNamed(context, '/gift');} ),
                 SizedBox(
                   height: 36.0,
                 ),

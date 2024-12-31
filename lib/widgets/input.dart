@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:material_kit_flutter/screens/settings.dart';
 
 class Input extends StatelessWidget {
-  final String placeholder;
-  final Widget suffixIcon;
-  final Widget prefixIcon;
-  final Function onTap;
-  final Function onChanged;
-  final TextEditingController controller;
+  final String ? placeholder;
+  final Widget ? suffixIcon;
+  final Widget ? prefixIcon;
+  final Function ? onTap;
+  final Function ? onChanged;
+  final TextEditingController ? controller;
   final bool autofocus;
   final Color borderColor;
-  final bool filled;
-  final Color fillColor;
+  final bool ? filled;
+  final Color ? fillColor;
   final Color textColor;
   final Color enabledBorderColor;
   final Color focusedBorderColor;
@@ -20,7 +21,8 @@ class Input extends StatelessWidget {
   final Color hintTextColor;
 
   Input(
-      {this.placeholder,
+      { 
+      this.placeholder,
       this.suffixIcon,
       this.prefixIcon,
       this.onTap,
@@ -35,14 +37,13 @@ class Input extends StatelessWidget {
       this.outlineBorder = false,
       this.autofocus = false,
       this.borderColor = MaterialColors.border,
-      this.controller});
+      this.controller });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
         cursorColor: cursorColor,
-        onTap: onTap,
-        onChanged: onChanged,
+        onChanged: onChanged!(),
         controller: controller,
         autofocus: autofocus,
         style: TextStyle(

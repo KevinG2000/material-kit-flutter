@@ -18,11 +18,11 @@ class Navbar extends StatefulWidget implements PreferredSizeWidget {
   final bool backButton;
   final bool transparent;
   final bool rightOptions;
-  final List<String> tags;
-  final Function getCurrentPage;
+  final List<String>  tags;
+  final Function ? getCurrentPage;
   final bool isOnSearch;
-  final TextEditingController searchController;
-  final Function searchOnChanged;
+  final TextEditingController ? searchController;
+  final Function ? searchOnChanged;
   final bool searchAutofocus;
   final bool noShadow;
   final Color bgColor;
@@ -31,7 +31,7 @@ class Navbar extends StatefulWidget implements PreferredSizeWidget {
       {this.title = "Home",
       this.categoryOne = "",
       this.categoryTwo = "",
-      this.tags,
+      required this.tags,
       this.transparent = false,
       this.rightOptions = true,
       this.getCurrentPage,
@@ -54,7 +54,7 @@ class Navbar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  String activeTag;
+  late String activeTag;
 
   ItemScrollController _scrollController = ItemScrollController();
 
@@ -269,7 +269,7 @@ class _NavbarState extends State<Navbar> {
                                   duration: Duration(milliseconds: 420),
                                   curve: Curves.easeIn);
                               if (widget.getCurrentPage != null)
-                                widget.getCurrentPage(activeTag);
+                                widget.getCurrentPage!(activeTag);
                             }
                           },
                           child: Container(

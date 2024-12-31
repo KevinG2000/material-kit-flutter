@@ -22,6 +22,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: Navbar(
+          tags: [],
           title: "Profile",
           transparent: true,
         ),
